@@ -29,20 +29,26 @@ This Scrapy project scrapes job listings from the ANETI website[](http://emploi.
 
 3.Set up MySQL database:
 
-. Create a MySQL database (e.g., aneti_jobs):
+. Create a MySQL database (e.g., aneti_data):
 ```sql 
-CREATE DATABASE aneti_jobs;
+CREATE DATABASE aneti_data;
 ```
 . Create the jobs table:
 ```sql
-USE aneti_db;
-CREATE TABLE jobs (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    labels VARCHAR(255),
-    posted BOOLEAN DEFAULT FALSE
-);
+USE aneti_data;
+CREATE TABLEoffres (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        reference VARCHAR(100) UNIQUE,
+                        profession VARCHAR(255),
+                        activité VARCHAR(255),
+                        service VARCHAR(255),
+                        nb_poste INT,
+                        date_post VARCHAR(50),
+                        niveau VARCHAR(100),
+                        status VARCHAR(255),
+                        link VARCHAR(255),
+                        description TEXT
+                    );
 ```
 
 
@@ -60,7 +66,7 @@ Usage
 
 Run the Scrapy spider manually:
 ```bash
-scrapy crawl aneti
+scrapy crawl aneti_scraper
 ```
 This scrapes jobs from emploi.nat.tn and saves them to the MySQL database.
 Run scheduled scraping:
@@ -71,13 +77,19 @@ bashpython scheduler.py
 Database Schema
 Data is stored in the jobs table in the aneti_jobs MySQL database:
 ```sql
-CREATE TABLE jobs (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    labels VARCHAR(255),
-    posted BOOLEAN DEFAULT FALSE
-);
+CREATE TABLEoffres (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        reference VARCHAR(100) UNIQUE,
+                        profession VARCHAR(255),
+                        activité VARCHAR(255),
+                        service VARCHAR(255),
+                        nb_poste INT,
+                        date_post VARCHAR(50),
+                        niveau VARCHAR(100),
+                        status VARCHAR(255),
+                        link VARCHAR(255),
+                        description TEXT
+                    );
 ```
 Project Structure
 textaneti_scraper/
