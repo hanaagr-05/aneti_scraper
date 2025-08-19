@@ -40,7 +40,7 @@ class AnetiSpider(scrapy.Spider):
                     item['reference'] = emp.css('td.poste a.ref::text').get(default='').strip()
                     item['profession'] = emp.css('td.profession a::text').get(default='').strip()
                     item['activite'] = emp.css('td.nom::text').get(default='').strip()
-                    item['service'] = emp.css('td.service::text').get(default='').strip()
+                    item['region'] = emp.css('td.service::text').get(default='').strip()
                     item['nb_poste'] = emp.css('td.poste[align="center"]::text').get(default='').strip()
                     item['date_post'] = emp.css('td.status:not([style*="display:none"])::text').get(default='').strip()
                     item['niveau'] = emp.css('td.poste[style*="display:none"]::text').get(default='').strip()
