@@ -9,7 +9,7 @@ class AnetiScraperItem(scrapy.Item):
     reference = scrapy.Field()
     profession = scrapy.Field()
     activite = scrapy.Field()
-    service = scrapy.Field()
+    region = scrapy.Field()
     nb_poste = scrapy.Field()
     date_post = scrapy.Field()
     niveau = scrapy.Field()
