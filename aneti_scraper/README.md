@@ -36,7 +36,7 @@ CREATE DATABASE aneti_data;
 . Create the jobs table:
 ```sql
 USE aneti_data;
-CREATE TABLEoffres (
+CREATE TABLE offres (
                         id INT AUTO_INCREMENT PRIMARY KEY,
                         reference VARCHAR(100) UNIQUE,
                         profession VARCHAR(255),
@@ -77,7 +77,7 @@ bashpython scheduler.py
 Database Schema
 Data is stored in the jobs table in the aneti_jobs MySQL database:
 ```sql
-CREATE TABLEoffres (
+CREATE TABLE offres (
                         id INT AUTO_INCREMENT PRIMARY KEY,
                         reference VARCHAR(100) UNIQUE,
                         profession VARCHAR(255),
