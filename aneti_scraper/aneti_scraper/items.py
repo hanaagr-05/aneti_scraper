@@ -12,7 +12,6 @@ class AnetiScraperItem(scrapy.Item):
     region = scrapy.Field()
     nb_poste = scrapy.Field()
     date_post = scrapy.Field()
-    niveau = scrapy.Field()
     status = scrapy.Field()
     link = scrapy.Field()
     description = scrapy.Field()
