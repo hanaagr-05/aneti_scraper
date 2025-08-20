@@ -33,7 +33,6 @@ class MySQLPipeline:
                         service VARCHAR(255),
                         nb_poste INT,
                         date_post VARCHAR(50),
-                        niveau VARCHAR(100),
                         status VARCHAR(255),
                         link VARCHAR(255),
                         description TEXT
@@ -61,8 +60,8 @@ class MySQLPipeline:
             
 
             self.cursor.execute("""
-                INSERT INTO offres (reference, profession, activité, service, nb_poste, date_post, niveau, status, link, description)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                INSERT INTO offres (reference, profession, activité, service, nb_poste, date_post, status, link, description)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (
                 item.get('reference', ''),
                 item.get('profession', ''),
@@ -70,7 +69,6 @@ class MySQLPipeline:
                 item.get('service', ''),
                 item.get('nb_poste', None),
                 item.get('date_post', ''),
-                item.get('niveau', ''),
                 item.get('status', ''),
                 item.get('link', ''),
                 item.get('description', '')
