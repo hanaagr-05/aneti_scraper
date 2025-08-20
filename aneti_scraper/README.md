@@ -4,7 +4,7 @@ This Scrapy project scrapes job listings from the ANETI website[](http://emploi.
 
 ## Features
 - Scrapes job titles, descriptions, and labels from ANETI job listings.
-- Stores data in a MySQL database with columns: `id`, `reference`, `profession`, `activité`, `service`, `nb_poste`, `date_post`, `niveau`, `status`, `link`, `description`.
+- Stores data in a MySQL database with columns: `id`, `reference`, `profession`, `activité`, `service`, `nb_poste`, `date_post`, `status`, `link`, `description`.
 - Supports configuration via environment variables for secure handling of database credentials and ANETI cookies (if required).
 - Optional: Schedule scraping tasks with APScheduler for automated updates.
 
@@ -44,7 +44,6 @@ CREATE TABLE offres (
                         service VARCHAR(255),
                         nb_poste INT,
                         date_post VARCHAR(50),
-                        niveau VARCHAR(100),
                         status VARCHAR(255),
                         link VARCHAR(255),
                         description TEXT
@@ -85,7 +84,6 @@ CREATE TABLE offres (
                         service VARCHAR(255),
                         nb_poste INT,
                         date_post VARCHAR(50),
-                        niveau VARCHAR(100),
                         status VARCHAR(255),
                         link VARCHAR(255),
                         description TEXT
