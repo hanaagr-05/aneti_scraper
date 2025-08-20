@@ -43,7 +43,6 @@ class AnetiSpider(scrapy.Spider):
                     item['region'] = emp.css('td.service::text').get(default='').strip()
                     item['nb_poste'] = emp.css('td.poste[align="center"]::text').get(default='').strip()
                     item['date_post'] = emp.css('td.status:not([style*="display:none"])::text').get(default='').strip()
-                    item['niveau'] = emp.css('td.poste[style*="display:none"]::text').get(default='').strip()
                     item['status'] = emp.css('td.status[style*="display:none"]::text').get(default='').strip()
                     relative_link = emp.css('td.poste a.ref::attr(href)').get()
                     item['link'] = response.urljoin(relative_link) if relative_link else ''
